@@ -1,0 +1,254 @@
+{
+ "frames": 86155,
+ "keys": 86135,
+ "turns": 38427,
+ "chunk": 4000,
+ "chunks": [
+  {
+   "file": "c000.json.gz",
+   "start": 0,
+   "count": 4000,
+   "t0": 1,
+   "t1": 3500
+  },
+  {
+   "file": "c001.json.gz",
+   "start": 4000,
+   "count": 4000,
+   "t0": 3500,
+   "t1": 6295
+  },
+  {
+   "file": "c002.json.gz",
+   "start": 8000,
+   "count": 4000,
+   "t0": 6296,
+   "t1": 8948
+  },
+  {
+   "file": "c003.json.gz",
+   "start": 12000,
+   "count": 4000,
+   "t0": 8948,
+   "t1": 11355
+  },
+  {
+   "file": "c004.json.gz",
+   "start": 16000,
+   "count": 4000,
+   "t0": 11355,
+   "t1": 13514
+  },
+  {
+   "file": "c005.json.gz",
+   "start": 20000,
+   "count": 4000,
+   "t0": 13514,
+   "t1": 15220
+  },
+  {
+   "file": "c006.json.gz",
+   "start": 24000,
+   "count": 4000,
+   "t0": 15221,
+   "t1": 16655
+  },
+  {
+   "file": "c007.json.gz",
+   "start": 28000,
+   "count": 4000,
+   "t0": 16655,
+   "t1": 18230
+  },
+  {
+   "file": "c008.json.gz",
+   "start": 32000,
+   "count": 4000,
+   "t0": 18231,
+   "t1": 19658
+  },
+  {
+   "file": "c009.json.gz",
+   "start": 36000,
+   "count": 4000,
+   "t0": 19658,
+   "t1": 21233
+  },
+  {
+   "file": "c010.json.gz",
+   "start": 40000,
+   "count": 4000,
+   "t0": 21233,
+   "t1": 22717
+  },
+  {
+   "file": "c011.json.gz",
+   "start": 44000,
+   "count": 4000,
+   "t0": 22717,
+   "t1": 24185
+  },
+  {
+   "file": "c012.json.gz",
+   "start": 48000,
+   "count": 4000,
+   "t0": 24186,
+   "t1": 25737
+  },
+  {
+   "file": "c013.json.gz",
+   "start": 52000,
+   "count": 4000,
+   "t0": 25737,
+   "t1": 27380
+  },
+  {
+   "file": "c014.json.gz",
+   "start": 56000,
+   "count": 4000,
+   "t0": 27380,
+   "t1": 29058
+  },
+  {
+   "file": "c015.json.gz",
+   "start": 60000,
+   "count": 4000,
+   "t0": 29058,
+   "t1": 30601
+  },
+  {
+   "file": "c016.json.gz",
+   "start": 64000,
+   "count": 4000,
+   "t0": 30602,
+   "t1": 32123
+  },
+  {
+   "file": "c017.json.gz",
+   "start": 68000,
+   "count": 4000,
+   "t0": 32124,
+   "t1": 33615
+  },
+  {
+   "file": "c018.json.gz",
+   "start": 72000,
+   "count": 4000,
+   "t0": 33616,
+   "t1": 35208
+  },
+  {
+   "file": "c019.json.gz",
+   "start": 76000,
+   "count": 4000,
+   "t0": 35208,
+   "t1": 36864
+  },
+  {
+   "file": "c020.json.gz",
+   "start": 80000,
+   "count": 4000,
+   "t0": 36864,
+   "t1": 38120
+  },
+  {
+   "file": "c021.json.gz",
+   "start": 84000,
+   "count": 2155,
+   "t0": 38120,
+   "t1": 38427
+  }
+ ],
+ "milestones": [
+  {
+   "frame": 0,
+   "turn": 1,
+   "label": "The start: a dwarven Valkyrie on Dlvl 1"
+  },
+  {
+   "frame": 788,
+   "turn": 770,
+   "label": "Into the Gnomish Mines"
+  },
+  {
+   "frame": 6918,
+   "turn": 5592,
+   "label": "Excalibur: a hand reaches up to bless the sword"
+  },
+  {
+   "frame": 7753,
+   "turn": 6168,
+   "label": "Sokoban"
+  },
+  {
+   "frame": 21438,
+   "turn": 14406,
+   "label": "The Valley of the Dead"
+  },
+  {
+   "frame": 24324,
+   "turn": 15324,
+   "label": "The Castle drawbridge goes down"
+  },
+  {
+   "frame": 29495,
+   "turn": 17257,
+   "label": "Medusa"
+  },
+  {
+   "frame": 31090,
+   "turn": 17925,
+   "label": "The Quest"
+  },
+  {
+   "frame": 32068,
+   "turn": 18256,
+   "label": "The Quest is done: the Orb of Fate"
+  },
+  {
+   "frame": 60448,
+   "turn": 29200,
+   "label": "Vlad’s Tower"
+  },
+  {
+   "frame": 70499,
+   "turn": 33098,
+   "label": "The vibrating square"
+  },
+  {
+   "frame": 73161,
+   "turn": 34050,
+   "label": "The Wizard of Yendor"
+  },
+  {
+   "frame": 73689,
+   "turn": 34338,
+   "label": "The Invocation"
+  },
+  {
+   "frame": 74438,
+   "turn": 34552,
+   "label": "Moloch’s Sanctum"
+  },
+  {
+   "frame": 74561,
+   "turn": 34561,
+   "label": "The Amulet of Yendor"
+  },
+  {
+   "frame": 82352,
+   "turn": 37819,
+   "label": "The Elemental Planes"
+  },
+  {
+   "frame": 84392,
+   "turn": 38232,
+   "label": "The Astral Plane"
+  },
+  {
+   "frame": 86150,
+   "turn": 38427,
+   "label": "The offering: ascension"
+  }
+ ]
+}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An LLM Agent Ascends in NetHack on Its First Try</title>
+<meta name="description" content="A full recording of an LLM agent's first-try ascension in NetHack: every screen and every key press, from Dlvl 1 to the Astral Plane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="window">
+  <div class="titlebar" aria-hidden="true">
+    <span class="title">guest@nethack: ~/sol-ascension</span>
+    <span class="wbtns"><i>–</i><i>□</i><i>×</i></span>
+  </div>
+  <main class="screen">
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">cat ANNOUNCEMENT</span></p>
+    <header class="out">
+      <p class="dim">NetHack · 18–19 October 2026</p>
+      <h1>An LLM agent ascends in NetHack on its first try</h1>
+      <p class="byline">by <b>Georgios Tsamis</b></p>
+      <p>A language-model agent driven by <b>GPT-6.1 Sol</b> played a full game of NetHack and won it: it offered the
+        Amulet of Yendor on the Astral Plane and ascended to demigoddess-hood. No human played any move. Further down is
+        the whole game: the screen after every key press, and the key that was pressed.</p>
+    </header>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">cat about.txt</span></p>
+    <section class="out" aria-label="About this game">
+      <p>This game is part of my thesis for the MSc in Artificial Intelligence and Deep Learning at the University of West
+        Attica. The thesis studies language-model agents for very long tasks, with NetHack as the test bed: a won game
+        spans tens of thousands of turns, mistakes are permanent, and success depends on knowledge that is rarely needed
+        but decisive when it is.</p>
+      <p>Its parts: <b>harness design</b> for long-horizon play; <b>learning across games</b> through a memory the agent
+        writes itself after reviewing each game; the <b>knowing-doing gap</b>, where agents know the right move (and even
+        write it down) but don’t make it when it matters; and <b>behaviour shaping</b>, a self-improvement loop in which a
+        model reviews its own games, rewrites its weak decisions and is fine-tuned on them, to make it play more carefully.</p>
+      <p>The model played through a <b>custom harness</b> built for the thesis. The harness lets a language model play
+        NetHack: the model reads the game as text, decides what to do, and the harness carries its decisions out as key
+        presses. The game ran in the <a href="https://github.com/NetHack-LE/nle">NetHack Learning Environment</a> (NLE
+        1.3.0), which runs <b>NetHack 3.6.7</b>. This was the model’s first game with the harness. It played from the first
+        turn to the ascension, over about 17 hours, with no human moves.</p>
+      <p>All details of the work (the harness, the methods and the results) will be published with the thesis once it is
+        finished.</p>
+    </section>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">cat why-it-is-hard.txt</span></p>
+    <section class="out" aria-label="Why it is hard">
+      <p>A won game is far longer than any model’s memory. This one took 9,057 model replies over 38,427 game turns; the
+        model never sees more than a recent slice of it, so whatever matters later (which items are cursed, what lies on
+        which level, when it last prayed, what it still needs for the endgame) has to survive hours of play outside its
+        context.</p>
+      <p>Consequences arrive late: a careless choice can kill thousands of turns afterwards, and there is no undo. The game
+        shows only text: items are unidentified, monsters can be invisible, and the screen hides most of the state. Much of
+        the knowledge that decides a game (how to survive Medusa, what the Invocation needs, how the Riders behave) is
+        needed once or twice, never practised. And every step goes through the game’s own interface of menus, prompts and
+        “--More--” messages, where a single wrong key can waste or end the game.</p>
+    </section>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">cat model.conf</span></p>
+    <section class="out" aria-label="Model settings">
+      <dl class="kv">
+        <dt>model</dt><dd>GPT-6.1 Sol</dd>
+        <dt>reasoning</dt><dd>maximum effort, every reply</dd>
+        <dt>context</dt><dd>a rolling conversation: past 35,000 prompt tokens, older turns drop out and the latest 12,000
+          tokens of it stay (919 times); prompts were ~39,000 tokens at the median, 90% under 62,000</dd>
+        <dt>replies</dt><dd>9,057 over the whole game</dd>
+        <dt>cost</dt><dd>$72.40 in API calls (OpenAI Flex tier), under 1 cent per reply</dd>
+      </dl>
+    </section>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">tail -n 1 logfile</span></p>
+    <section class="out" aria-label="The game in numbers">
+      <dl class="kv">
+        <dt>outcome</dt><dd class="ok">ascended to demigoddess-hood</dd>
+        <dt>character</dt><dd>Agent, dwarven Valkyrie (lawful, female)</dd>
+        <dt>turns</dt><dd>38,427</dd>
+        <dt>points</dt><dd>2,447,684</dd>
+        <dt>level</dt><dd>XL 17</dd>
+        <dt>keys</dt><dd>86,135 key presses</dd>
+      </dl>
+    </section>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">ttyplay sol-ascension.ttyrec</span></p>
+    <section class="out player" aria-label="Game recording player">
+      <div class="term-wrap"><pre id="tty" class="tty" aria-live="off" aria-label="NetHack screen">Loading the recording…</pre></div>
+      <div class="keys-row">
+        <span class="dim">keys</span>
+        <div id="keys" class="keys" aria-label="The last keys pressed"></div>
+      </div>
+      <div class="timeline">
+        <input id="seek" type="range" min="0" max="0" value="0" aria-label="Position in the game">
+        <div id="ticks" class="ticks" aria-hidden="true"></div>
+      </div>
+      <div class="controls">
+        <button id="back" title="Back 1 key (←)" aria-label="Back one key">[ &lt; ]</button>
+        <button id="play" class="primary" title="Play / pause (Space)" aria-label="Play">[ ▶ play ]</button>
+        <button id="fwd" title="Forward 1 key (→)" aria-label="Forward one key">[ &gt; ]</button>
+        <label class="speed"><span class="dim">speed</span>
+          <select id="speed" aria-label="Playback speed">
+            <option value="4">4 keys/s</option>
+            <option value="12" selected>12 keys/s</option>
+            <option value="40">40 keys/s</option>
+            <option value="150">150 keys/s</option>
+            <option value="600">600 keys/s</option>
+          </select>
+        </label>
+        <span id="pos" class="pos">Turn 1 · screen 1 of 86,155</span>
+      </div>
+      <p class="dim hint">space: play/pause · ← →: one key · shift+← →: 100 keys · [ ]: previous/next milestone</p>
+    </section>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">grep milestone game.log</span></p>
+    <section class="out milestones" aria-label="Milestones">
+      <ol id="milestones"></ol>
+    </section>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">cat PRIOR_WORK</span></p>
+    <section class="out" aria-label="Prior work">
+      <p>The first recorded ascension by an LLM agent was made by GPT 6 Astra on 21 September 2026, with its own harness:
+        <a href="https://kenforthewin.github.io/blog/posts/llm-nethack-ascension/">“An LLM Beat NetHack”</a>. The work
+        shown here was developed in parallel with it and independently of it.</p>
+    </section>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="in">cat NOTICE</span></p>
+    <footer class="out dim">
+      <p>The recording shows only what the game showed: the 80×24 terminal screen after each key press, and the key.</p>
+      <p>Unofficial. Not affiliated with OpenAI or the NetHack DevTeam. NetHack is copyright the NetHack DevTeam and
+        others.</p>
+      <p>This page was designed by Claude Opus 5.5 (Anthropic), with extended thinking, in Claude Code.</p>
+    </footer>
+
+    <p class="cmd"><span class="ps1">guest@nethack</span><span class="sep">:</span><span class="path">~/sol-ascension</span>$ <span class="caret" aria-hidden="true"></span></p>
+  </main>
+</div>
+<script src="player.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+:root {
+  --desk: #2b2d31;        /* behind the window */
+  --win: #121417;         /* the terminal */
+  --bar: #1d2024;
+  --line: #30343a;
+  --text: #d8d8d2;
+  --dim: #8d939b;
+  --green: #8ae234;       /* prompt user@host */
+  --blue: #7aa6da;        /* prompt path */
+  --amber: #e9b949;
+  --mono: "JetBrains Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--desk); color: var(--text); }
+body { font: 15px/1.6 var(--mono); padding: 32px 16px 48px; }
+::selection { background: #3a4a2a; }
+
+.window { max-width: 1080px; margin: 0 auto; background: var(--win); border: 1px solid #0b0c0e; border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .45); overflow: hidden; }
+.titlebar { position: relative; height: 36px; background: var(--bar); border-bottom: 1px solid #0b0c0e;
+  display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--dim); }
+.title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%; }
+.wbtns { position: absolute; right: 10px; top: 0; height: 36px; display: flex; gap: 6px; align-items: center; }
+.wbtns i { font-style: normal; width: 22px; height: 22px; border-radius: 50%; background: #2c3036; color: #a9aeb5;
+  display: grid; place-items: center; font-size: 12px; line-height: 1; }
+.screen { padding: 22px 26px 26px; }
+
+.cmd { margin: 22px 0 8px; color: var(--text); overflow-wrap: anywhere; }
+.cmd:first-child { margin-top: 0; }
+.ps1 { color: var(--green); font-weight: 700; }
+.path { color: var(--blue); font-weight: 700; }
+.in { color: var(--text); }
+.out { max-width: 90ch; }
+.out p { margin: 0 0 12px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+.out p.hint, .out p.dim, .out p.byline { text-align: left; }
+.out b { color: #ffffff; font-weight: 700; }
+.dim { color: var(--dim); }
+a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: #a9c8ef; }
+h1 { font-size: clamp(22px, 3.6vw, 32px); line-height: 1.25; margin: 4px 0 12px; color: var(--amber); font-weight: 700; }
+.byline { margin: -4px 0 14px; color: var(--dim); }
+.byline b { color: var(--green); font-weight: 700; }
+
+.kv { display: grid; grid-template-columns: 12ch 1fr; gap: 4px 16px; margin: 0; }
+.kv dt { color: var(--amber); }
+.kv dt::after { content: " ="; color: var(--dim); }
+.kv dd { margin: 0; }
+.kv .ok { color: var(--green); font-weight: 700; }
+
+.player { max-width: 806px; }
+.term-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: #000; }
+.tty { margin: 0; padding: 10px 12px; background: #000; color: #c0c0c0; white-space: pre;
+  font: max(9px, calc(min(100vw - 120px, 780px) / 49.5)) / 1.25 "DejaVu Sans Mono", Menlo, Consolas, monospace;
+  min-height: calc(24 * 1.25em + 20px); }
+.tty .cur { outline: 1px solid var(--amber); }
+.c0 { color: #5a6378; } .c1 { color: #d9453f; } .c2 { color: #3fae49; } .c3 { color: #b5862d; }
+.c4 { color: #4a78e0; } .c5 { color: #b35ad1; } .c6 { color: #2fa8b8; } .c7 { color: #c0c0c0; }
+.c8 { color: #808080; } .c9 { color: #ff8c1a; } .ca { color: #6be36b; } .cb { color: #f5e050; }
+.cc { color: #6a9bff; } .cd { color: #ff6bff; } .ce { color: #6bf5ff; } .cf { color: #ffffff; }
+
+.keys-row { display: flex; align-items: center; gap: 12px; margin: 10px 0 4px; min-height: 30px; }
+.keys { display: flex; gap: 4px; overflow: hidden; flex: 1; justify-content: flex-end; }
+.cap { font-size: 13px; line-height: 1; padding: 5px 7px; border: 1px solid var(--line); border-radius: 4px; color: var(--dim);
+  background: #1a1d21; white-space: pre; }
+.cap.now { color: #121417; background: var(--amber); border-color: var(--amber); }
+
+.timeline { margin: 6px 0 2px; }
+#seek { width: 100%; accent-color: var(--green); }
+.ticks { position: relative; height: 8px; }
+.ticks i { position: absolute; top: 0; width: 2px; height: 8px; background: #5c626a; transform: translateX(-1px); }
+
+.controls { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 6px; }
+button, select { font: inherit; font-size: 14px; color: var(--text); background: transparent; border: 0; padding: 4px 2px;
+  cursor: pointer; }
+button:hover { color: var(--green); }
+button:focus-visible, select:focus-visible, a:focus-visible, #seek:focus-visible { outline: 1px dashed var(--amber); outline-offset: 2px; }
+button.primary { color: var(--green); font-weight: 700; min-width: 13ch; text-align: left; }
+.speed { display: flex; gap: 8px; align-items: center; font-size: 14px; }
+select { background: #1a1d21; border: 1px solid var(--line); border-radius: 4px; padding: 3px 6px; }
+.pos { margin-left: auto; font-size: 13px; color: var(--dim); }
+.hint { margin: 10px 0 0; font-size: 12.5px; }
+
+.milestones { max-width: none; }
+.milestones ol { list-style: none; margin: 0; padding: 0; }
+.milestones button { width: 100%; text-align: left; display: flex; gap: 2ch; padding: 3px 6px; border-radius: 3px; font-size: 14.5px; }
+.milestones button::before { content: " "; color: var(--green); white-space: pre; }
+.milestones button:hover { background: #1b1f24; color: var(--text); }
+.milestones button.on { background: #1b1f24; }
+.milestones button.on::before { content: ">"; }
+.milestones .t { color: var(--dim); min-width: 9ch; }
+
+.caret { display: inline-block; width: 0.6em; height: 1.1em; vertical-align: text-bottom; background: var(--text);
+  animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
+
+@media (max-width: 600px) {
+  body { padding: 0; font-size: 14px; }
+  .window { border-radius: 0; border: 0; }
+  .screen { padding: 16px; }
+  .out p { text-align: left; }
+  .kv { grid-template-columns: 1fr; gap: 0; }
+  .kv dd { margin-bottom: 8px; }
+  .pos { margin-left: 0; width: 100%; }
+  .tty { font-size: max(9px, calc((100vw - 58px) / 49.5)); }
+  .titlebar { justify-content: flex-start; padding-left: 12px; }
+  .title { max-width: calc(100% - 100px); }
+  .ps1, .ps1 + .sep { display: none; }
+}

@@ -15,7 +15,7 @@ html, body { margin: 0; background: var(--desk); color: var(--text); }
 body { font: 15px/1.6 var(--mono); padding: 32px 16px 48px; }
 ::selection { background: #3a4a2a; }
 
-.window { max-width: 1080px; margin: 0 auto; background: var(--win); border: 1px solid #0b0c0e; border-radius: 10px;
+.window { max-width: 900px; margin: 0 auto; background: var(--win); border: 1px solid #0b0c0e; border-radius: 10px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, .45); overflow: hidden; }
 .titlebar { position: relative; height: 36px; background: var(--bar); border-bottom: 1px solid #0b0c0e;
   display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--dim); }
@@ -30,7 +30,7 @@ body { font: 15px/1.6 var(--mono); padding: 32px 16px 48px; }
 .ps1 { color: var(--green); font-weight: 700; }
 .path { color: var(--blue); font-weight: 700; }
 .in { color: var(--text); }
-.out { max-width: 90ch; }
+.out { max-width: none; }
 .out p { margin: 0 0 12px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 .out p.hint, .out p.dim, .out p.byline { text-align: left; }
 .out b { color: #ffffff; font-weight: 700; }
@@ -47,10 +47,10 @@ h1 { font-size: clamp(22px, 3.6vw, 32px); line-height: 1.25; margin: 4px 0 12px;
 .kv dd { margin: 0; }
 .kv .ok { color: var(--green); font-weight: 700; }
 
-.player { max-width: 806px; }
+.player { max-width: none; }
 .term-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: #000; }
 .tty { margin: 0; padding: 10px 12px; background: #000; color: #c0c0c0; white-space: pre;
-  font: max(9px, calc(min(100vw - 120px, 780px) / 49.5)) / 1.25 "DejaVu Sans Mono", Menlo, Consolas, monospace;
+  font: max(9px, calc(min(100vw - 120px, 820px) / 49.5)) / 1.25 "DejaVu Sans Mono", Menlo, Consolas, monospace;
   min-height: calc(24 * 1.25em + 20px); }
 .tty .cur { outline: 1px solid var(--amber); }
 .c0 { color: #5a6378; } .c1 { color: #d9453f; } .c2 { color: #3fae49; } .c3 { color: #b5862d; }

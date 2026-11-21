@@ -3,6 +3,8 @@
 A static page with the full recording of an AI agent's ascension in NetHack (18–19 October 2026): the terminal screen
 after every key press and the key that was pressed, with a player and milestones.
 
+**Watch it here: https://tsamisg.github.io/sol-nethack-ascension/**
+
 - `index.html`, `style.css`, `player.js`: the page and the player (no build step, no dependencies).
 - `data/meta.json`: frame count, chunk index and milestones; `data/c000.json.gz` … `c021.json.gz`: the frames (3.6 MB).
 
